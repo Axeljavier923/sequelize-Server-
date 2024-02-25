@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Headers/header';
 import '../stilos/listaTablas.css'; 
+import { Link } from 'react-router-dom';
 
 const ListaProductos = () => {
   const [dataProductos, setDataProductos] = useState(null);
@@ -44,8 +45,16 @@ const ListaProductos = () => {
                 <td>{productos.cantidad}</td>
                 <td>{productos.precio}</td>
                 <td>{productos.clienteId}</td>
-                <td><button className="edit-button">Editar</button></td>
-                <td><button className="delete-button">Eliminar</button></td>
+                <td>
+                  <Link to={`/editar_producto/${productos.id}`}>
+                    <button className="edit-button">Editar</button>
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`/eliminar_producto/${productos.id}`}>
+                    <button className="delete-button">Eliminar</button>
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

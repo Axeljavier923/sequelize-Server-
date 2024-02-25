@@ -34,13 +34,13 @@ const CrearEmpleado = () => {
       });
 
       if (fethEmpleadoPost.ok) {
-        console.log('Empleado agregado con éxito');
+        alert('Empleado agregado con éxito');
       } else {
-        console.error('Error al agregar empleado');
+        alert('Error al agregar empleado');
         console.error(await fethEmpleadoPost.json()); 
       }
     } catch (error) {
-      console.error('Error de red al agregar empleado', error);
+      alert('Error de red al agregar empleado', error);
     }
   };
 
@@ -49,7 +49,7 @@ const CrearEmpleado = () => {
      <Header />
     <div className="crear-empleado-container">
       <div className="crear-empleado-form">
-        <h2>Crear Nuevo Empleado</h2>
+        <h2>Crear nuevo empleado</h2>
         <form onSubmit={handleNuevoEmpleadoSubmit}>
           <label>
             Nombre Completo:
@@ -78,7 +78,7 @@ const CrearEmpleado = () => {
               onChange={handleNuevoEmpleadoChange}
             />
           </label>
-          <button type="submit">Agregar Empleado</button>
+          <button className='button-crear-empleado' type="submit">Agregar Empleado</button>
         </form>
       </div>
     </div>

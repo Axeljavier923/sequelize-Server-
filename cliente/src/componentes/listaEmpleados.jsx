@@ -31,7 +31,7 @@ function ListaEmpleados() {
               <th>Nombre Completo</th>
               <th>Género</th>
               <th>Edad</th>
-              <th>Crear empleado</th>
+              <th>Crear cliente</th>
               <th>Editar</th>
               <th>Eliminar</th>
             </tr>
@@ -43,12 +43,21 @@ function ListaEmpleados() {
                 <td>{empleado.nombre_completo}</td>
                 <td>{empleado.genero}</td>
                 <td>{empleado.edad}</td>
-                <Link> 
-                <td><button to='/empleado/:empleadoId/cliente' className="delete-button">crearCliente</button></td></Link>
-                <Link>
-                <td><button to='/empleado/:id' className="edit-button">Editar</button></td></Link>
-                <Link>
-                <td><button to='/empleado/:id' className="delete-button">Eliminar</button></td></Link>
+                <td>
+                  <Link to={`/crear/${empleado.id}/cliente`}>
+                    <button className="crear-button">crearCliente</button>
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`/editar_empleado/${empleado.id}`}>
+                    <button className="edit-button">Editar</button>
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`/eliminar_empleado/${empleado.id}`}>
+                    <button className="delete-button">Eliminar</button>
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

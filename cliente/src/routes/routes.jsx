@@ -10,6 +10,7 @@ import CrearCliente from '../componentes/crearCliente';
 import CrearEmpleado from '../componentes/crearEmpleado';
 import CrearProducto from '../componentes/crearProducto';
 import EditarEmpleado from '../componentes/editarEmpleado';
+import EliminarEmpleado from '../componentes/eliminarEmpleado';
 
 export const AppRouter = () => {
   return (
@@ -22,10 +23,11 @@ export const AppRouter = () => {
         <Route path='/lista_productos' element={<ListaProductos />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/crear_cliente' element={<CrearCliente />} />
+        <Route path='/:empleadoId/crear_cliente' element={<CrearCliente />} />
         <Route path='/crear_empleado' element={<CrearEmpleado />} />
         <Route path='/crear_producto' element={<CrearProducto />} />
-        <Route path='/editar_empleado/:id' element={<EditarEmpleado />} />
+        <Route path='/editar_empleado/:empleadoId' element={<EditarEmpleado />} />
+        <Route path='/eliminar_empleado/:empleadoId' element={<EliminarEmpleado />} />
       </Routes>
     </BrowserRouter>
   );

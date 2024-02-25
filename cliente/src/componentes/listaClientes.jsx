@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
+import { Link } from 'react-router-dom';
 
 const ListaClientes = () => {
   const [dataCliente, setDataCliente] = useState(null);
@@ -30,6 +31,7 @@ const ListaClientes = () => {
               <th>Género</th>
               <th>Edad</th>
               <th>EmpleadoId</th>
+              <th>Crear producto</th>
               <th>Editar</th>
               <th>Eliminar</th>
             </tr>
@@ -42,8 +44,21 @@ const ListaClientes = () => {
                 <td>{cliente.genero}</td>
                 <td>{cliente.edad}</td>
                 <td>{cliente.empleadoId}</td>
-                <td><button className="edit-button">Editar</button></td>
-                <td><button className="delete-button">Eliminar</button></td>
+                <td>
+                  <Link to={`/crear/${cliente.id}/producto`}>
+                    <button className="crear-button">crearProducto</button>
+                  </Link>
+                </td>
+                <td>
+                <Link to={`/editarCliente/${cliente.id}`}>
+                  <button className="edit-button">Editar</button>
+                </Link>
+                </td>
+                <td>
+                <Link to={`/eliminarCliente/${cliente.id}`}>
+                  <button className="delete-button">Eliminar</button>
+                </Link>
+                </td>
               </tr>
             ))}
           </tbody>
