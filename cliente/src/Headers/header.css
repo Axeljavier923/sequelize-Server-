@@ -1,0 +1,39 @@
+/* Header.css */
+.header-container {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
