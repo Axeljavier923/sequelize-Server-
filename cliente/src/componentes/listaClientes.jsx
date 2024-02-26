@@ -45,17 +45,17 @@ const ListaClientes = () => {
                 <td>{cliente.edad}</td>
                 <td>{cliente.empleadoId}</td>
                 <td>
-                  <Link to={`/crear/${cliente.id}/producto`}>
+                  <Link to={`/cliente/${cliente.id}/crear_producto`}>
                     <button className="crear-button">crearProducto</button>
                   </Link>
                 </td>
                 <td>
-                <Link to={`/editarCliente/${cliente.id}`}>
+                <Link to={`/editar_Cliente/${cliente.id}`}>
                   <button className="edit-button">Editar</button>
                 </Link>
                 </td>
                 <td>
-                <Link to={`/eliminarCliente/${cliente.id}`}>
+                <Link to={`/eliminar_cliente/${cliente.id}`}>
                   <button className="delete-button">Eliminar</button>
                 </Link>
                 </td>

@@ -44,9 +44,9 @@ function ListaEmpleados() {
                 <td>{empleado.genero}</td>
                 <td>{empleado.edad}</td>
                 <td>
-                  <Link to={`/crear/${empleado.id}/cliente`}>
-                    <button className="crear-button">crearCliente</button>
-                  </Link>
+                <Link to={`/empleado/${empleado.id}/crear_cliente`}>
+                    <button className="crear-button">Crear Cliente</button>
+                </Link>
                 </td>
                 <td>
                   <Link to={`/editar_empleado/${empleado.id}`}>

@@ -5,7 +5,7 @@ export const createEmpleadoSchema = [
     .exists()
     .notEmpty().withMessage('El nombre_completo no debe estar vacío.')
     .isString().withMessage('El nombre completo debe ser un string.')
-    .isLength({min: 5, max: 70})
+    .isLength({min: 4, max: 70})
     .withMessage('Debe tener  minimo 5 caracteres con un maximo de 70 caracteres'),
   body('edad')
     .exists()

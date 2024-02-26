@@ -1,44 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
 import "../stilos/crearCliente.css"
+import {useParams} from "react-router-dom"
 
 function CrearClientes() {
+  const { empleadoId } = useParams();
   const [nuevoCliente, setNuevoCliente] = useState({
     nombre_completo: '',
     genero: '',
     edad: 0,
-    empleadoId: 0,
+    empleadoId: empleadoId ? parseInt(empleadoId, 10) : 0,
   });
+  
 
   const handleNuevoClienteSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
-      const response = await fetch(`http://localhost:3000/cliente/${nuevoCliente.empleadoId}/cliente`, {
+      const response = await fetch(`http://localhost:3000/empleado/${empleadoId}/cliente`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(nuevoCliente),
+        body: JSON.stringify({ ...nuevoCliente, empleadoId: parseInt(empleadoId, 10) }),
       });
-
+  
+      console.log("empleado id", empleadoId);
+      console.log("nuevo cliente: ", nuevoCliente);
+  
       if (response.ok) {
-        console.log('Cliente agregado con éxito');
-        // Puedes volver a cargar la lista de clientes después de agregar uno nuevo
-        fetchData();
+        alert('Cliente agregado con éxito');
       } else {
-        console.error('Error al agregar cliente');
+        alert('Error al agregar cliente');
       }
     } catch (error) {
       console.error('Error de red al agregar cliente', error);
     }
   };
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNuevoCliente({ ...nuevoCliente, [name]: value });
   };
-
   return (
     <div>
       <Header />
