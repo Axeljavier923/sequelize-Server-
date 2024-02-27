@@ -15,7 +15,17 @@ export const Auth=sequelize.define(
             type:DataTypes.STRING,
             allowNull:false,
             unique:true
+        },
+        supermercadoId: {
+          type: DataTypes.INTEGER,
+          allowNull: true,
+          defaultValue: null
+        },
+        admin: {
+          type: DataTypes.BOOLEAN,
+          defaultValue: false
         }
+
     },
     {
         timestamps:true,

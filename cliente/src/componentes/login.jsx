@@ -1,13 +1,16 @@
 import React from 'react'
-import Header from "../Headers/header"
+import { FormLogin } from '../Formulario/formLogin.jsx'
+import { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
+import { AuthContext } from '../context/authProvider.jsx'
 
-function Login() {
+export const Login = () => {
+
+  const { authState } = useContext(AuthContext)
+
+
+  if (authState.islogged) return (<Navigate to={"/"} />)
   return (
-    <div>
-  <Header/>
-    login
-    </div>
+    <FormLogin />
   )
 }
-
-export default Login

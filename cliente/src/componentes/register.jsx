@@ -1,14 +1,13 @@
-import React from 'react'
-import Header from '../Headers/header'
+import React from 'react';
+import { FormRegister } from '../Formulario/formRegister';
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../context/authProvider';
+export const Register = () => {
+  const { authState } = useContext(AuthContext)
 
-function Register() {
-
+  if (authState.islogged) return (<Navigate to={'/'} />)
   return (
-    <div>
-    <Header/>
-      register
-    </div>
-  )
+    <FormRegister />
+  );
 }
-
-export default Register
