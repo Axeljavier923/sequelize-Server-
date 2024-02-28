@@ -52,8 +52,8 @@ export const ctrlLoginUser = async (req, res) => {
       if (passwordMatch) {
         const token = generateToken({ id: user.id, correo: user.correo });
 
-        res.json({
-          message: 'Autenticación exitosa',
+        res.status(200).json({
+          // message: 'Autenticación exitosa',
           token,
         });
       } else {
@@ -72,7 +72,7 @@ export const ctrlLoginUser = async (req, res) => {
     try {
       const hashedPassword = await hashPassword(password);
   
-      const newUser = await RegisterOneUsers(correo, hashedPassword,);
+      const newUser = await RegisterOneUsers(correo, hashedPassword);
   
       res.status(200).json({
         message: 'Usuario registrado exitosamente',

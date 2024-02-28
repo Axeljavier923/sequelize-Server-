@@ -37,7 +37,7 @@ export const FormLogin = () => {
 
           <div className='inputBoxLogin'>
             <input type="password"
-              placeholder='Contraseña'
+              placeholder='Password'
               name="password"
               id='password'
               value={formState.password}

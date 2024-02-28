@@ -27,6 +27,8 @@ function ListaAuth() {
         <p>ID: {authItem.id}</p>
         <p>Correo: {authItem.correo}</p>
         <p>Password: {authItem.password}</p>
+        <p>Admin: {authItem.admin === true ? 'true' : 'false'}</p>
+
         <hr/>
       </div>
     ))}

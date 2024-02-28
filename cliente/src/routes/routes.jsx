@@ -15,6 +15,7 @@ import EditarCliente from '../componentes/editarCliente';
 import EliminarCliente from '../componentes/eliminarCliente';
 import EditarProducto from '../componentes/editarProducto';
 import EliminarProducto from '../componentes/eliminarProducto';
+import { Solicitudes } from '../componentes/solicitudes';
 
 export const AppRouter = () => {
   return (
@@ -26,6 +27,8 @@ export const AppRouter = () => {
         <Route path='/lista_clientes' element={<ListaClientes />} />
         <Route path='/lista_empleados' element={<ListaEmpleados />} />
         <Route path='/lista_productos' element={<ListaProductos />} />
+        <Route path='/solicitudes' element={<Solicitudes />} />
+
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

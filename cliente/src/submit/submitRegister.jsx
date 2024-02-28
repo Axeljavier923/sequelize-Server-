@@ -46,8 +46,8 @@ export const RegisterSubmit = ({ formState }) => {
     // (response.token)
     {
       // Manejar registro exitoso
-      console.log("Registro exitoso, token:", response.token);
-      login(response);
+      // console.log("Registro exitoso, token:", response.token);
+      login(response.token);
 
       Swal.fire({
         title: 'Registro exitoso',
