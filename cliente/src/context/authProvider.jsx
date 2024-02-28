@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [authState, dispatch] = useReducer(authReducer, {
         islogged: localStorage.getItem('islogged') === 'true',
         admin: localStorage.getItem('admin') === 'true',
+        token: localStorage.getItem('token'),
     });
     
     const login = async (payload) => {
@@ -16,7 +17,8 @@ export const AuthProvider = ({ children }) => {
             type: types.LOGIN,
             payload: {
                 ...payload,
-                admin: admin,
+                token: payload.token, 
+                // Usamos payload.admin directamente
             }
         });
 

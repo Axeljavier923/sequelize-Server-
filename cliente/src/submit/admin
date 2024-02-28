@@ -35,11 +35,11 @@ export const LoginSubmit = ({ formState }) => {
       });
     } else if (resp.token) {
       // Realiza el fetch a la ruta /auth/user con el token
-       const userData = await CustomFetch("http://localhost:3000/auth/user", 'TOKEN', resp.token);
+      const userData = await CustomFetch("http://localhost:3000/auth/user", 'TOKEN', resp.token);
       console.log("user data", userData)
 
       // Llamamos a la función login con la respuesta completa
-      login({ ...resp, ...userData });
+      login(userData);
 
       // Verifica si el usuario es un administrador
       if (userData.admin) {

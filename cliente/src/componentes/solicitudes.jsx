@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CustomFetch } from "../api/customFeth.js";
 
 export function Solicitudes() {
-  const token = localStorage.getItem('admi');
+  const token = localStorage.getItem('token');
   const navigate = useNavigate();
   console.log("token", token);
 

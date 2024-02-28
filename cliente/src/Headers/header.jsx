@@ -4,10 +4,14 @@ import { LoginButtons } from './botonLoginRegister.jsx';
 import { LogoutButton  } from './logoatButton.jsx';
 import { AuthContext } from '../context/authProvider.jsx';
 import '../stilos/header.css';  
+// import {resp, userData} from "../submit/submitLogin.jsx"
 
 const Header = () => {
   const { authState } = useContext(AuthContext);
   console.log("authState", authState)
+  // console.log("resp", resp)
+  // console.log("userData", userData)
+
 
   return (
     <div className="header-container">
