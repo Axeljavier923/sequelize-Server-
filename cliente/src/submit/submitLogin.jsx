@@ -52,7 +52,29 @@ export const LoginSubmit = ({ formState }) => {
           grow: 'row',
           showConfirmButton: false
         });
-      } else {
+      } else if (userData.supermercadoId) {
+        Swal.fire({
+          title: 'Inicio de sesión como empresa de supermercado correcto',
+          icon: 'success',
+          width: '50%',
+          padding: '1rem',
+          background: '#DBCBCB',
+          grow: 'row',
+          showConfirmButton: false
+        });
+      }
+      else if (userData.supermercadoId && userData.admin) {
+        Swal.fire({
+          title: 'Inicio de sesión como empresa de supermercado y administrador correcto',
+          icon: 'success',
+          width: '50%',
+          padding: '1rem',
+          background: '#DBCBCB',
+          grow: 'row',
+          showConfirmButton: false
+        });
+      }
+      else {
         Swal.fire({
           title: 'Inicio de sesión correcto',
           icon: 'success',

@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
   }
   
   .crear-empleado-form {
-    width: 300px;
+    width: 350px;
     padding: 35px;
     border: 2px solid #ccc;
     border-radius: 5px;

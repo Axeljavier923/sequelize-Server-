@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [authState, dispatch] = useReducer(authReducer, {
         islogged: localStorage.getItem('islogged') === 'true',
         admin: localStorage.getItem('admin') === 'true',
+        supermercadoId: localStorage.getItem('supermercadoId') === 'true',
         token: localStorage.getItem('token'),
     });
     
@@ -18,13 +19,14 @@ export const AuthProvider = ({ children }) => {
             payload: {
                 ...payload,
                 token: payload.token, 
-                // Usamos payload.admin directamente
             }
         });
 
         localStorage.setItem('token', payload.token);
         localStorage.setItem('islogged', 'true');
         localStorage.setItem('admin', payload.admin);
+        localStorage.setItem('supermercadoId', payload.supermercadoId);
+
     };
 
     const logout = () => {

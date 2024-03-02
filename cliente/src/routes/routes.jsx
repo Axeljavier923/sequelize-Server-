@@ -15,7 +15,10 @@ import EditarCliente from '../componentes/editarCliente';
 import EliminarCliente from '../componentes/eliminarCliente';
 import EditarProducto from '../componentes/editarProducto';
 import EliminarProducto from '../componentes/eliminarProducto';
-import { Solicitudes } from '../componentes/solicitudes';
+import { SoporteForm } from '../Formulario/formSoporte';
+import { RegisterTienda } from '../pages/registerTienda';
+import { TodasSolicitudes } from '../pages/todasSolicitudes';
+import { ManejarSolicitudes } from '../pages/manejarSolicitudes';
 
 export const AppRouter = () => {
   return (
@@ -27,14 +30,17 @@ export const AppRouter = () => {
         <Route path='/lista_clientes' element={<ListaClientes />} />
         <Route path='/lista_empleados' element={<ListaEmpleados />} />
         <Route path='/lista_productos' element={<ListaProductos />} />
-        <Route path='/solicitudes' element={<Solicitudes />} />
-
+        <Route path='/solicitudes' element={<ManejarSolicitudes />} />
+        <Route path='/soporte' element={<SoporteForm />} />
+        <Route path='/registrar-tienda' element={<RegisterTienda/>} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/empleado/:empleadoId/crear_cliente' element={<CrearCliente />} />
         <Route path='/crear_empleado' element={<CrearEmpleado />} />
         <Route path='/cliente/:clientId/crear_producto' element={<CrearProducto />} />
+        <Route path='/cliente/:clientId/crear_producto' element={<TodasSolicitudes />} />
+        <Route path='/cliente/:clientId/crear_producto' element={<ManejarSolicitudes />} />
 
         <Route path='/editar_empleado/:empleadoId' element={<EditarEmpleado />} />
         <Route path='/editar_Cliente/:id' element={<EditarCliente/>} />
