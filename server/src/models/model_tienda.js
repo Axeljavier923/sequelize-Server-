@@ -23,7 +23,47 @@ export const tiendaModel = sequelize.define(
     cuit: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    productoId: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'producto',
+        key: 'id',
+      }
+  },
+  authId: { 
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'auth',
+      key: 'id',
     }
+},
+empleadoId: { 
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'empleados',
+    key: 'id',
+  }
+},
+clienteId: { 
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'clientes',
+    key: 'id',
+  }
+},
+provinceId: { 
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'provinces',
+    key: 'id',
+  }
+},
   },
   {
     timestamps: true,

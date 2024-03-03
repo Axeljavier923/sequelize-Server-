@@ -1,6 +1,6 @@
 import {app, port} from "./server.js"
 import {sequelize} from "./src/database/db.js"
-import {associate, dataPreloaded} from "./src/asociacion/asociacion.js"
+import {associate} from "./src/asociacion/asociacion.js"
 
 import {routes_cliente} from './src/routes/routes_client.js';
 import {routes_empleado} from './src/routes/routes_empleado.js';
@@ -34,8 +34,8 @@ sequelize.authenticate()
     return sequelize.sync(); 
   })
   .then(() => {
-    associate(); 
-    dataPreloaded();
+    // dataPreloaded();
+    associate();
   })
   .catch((error) => {
     console.log("Se ha producido un error", error);

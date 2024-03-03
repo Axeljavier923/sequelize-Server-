@@ -8,15 +8,27 @@ import {provinceModel, createProvince} from "../models/model_provincia.js";
 import { solicitarTienda } from "../models/model_solicitarTienda.js";
 import {tiendaModel} from "../models/model_tienda.js";
 
+// export async function dataPreloaded() {
+//   await createProvince()
+//   await createLocation()
+// }
+
 export const associate = async () => {
   try {
     // Crear las tablas
     await Cliente.sync({ force: false });
     await Producto.sync({ force: false });
     await Empleado.sync({ force: false });
-    await solicitarTienda.sync({ force: true });
+    await Auth.sync({ force: false });
+    await solicitarTienda.sync({ force: false });
+    await locationModel.sync({ force: false});
+    await provinceModel.sync({ force: false });
 
 
+
+    // Crear provincias y ubicaciones
+    await createProvince();
+    await createLocation();
     
     // Asociar modelos
     Cliente.hasMany(Producto, {
@@ -29,28 +41,100 @@ export const associate = async () => {
       sourceKey: 'id',
     });
 
-//     //Province and location
-provinceModel.hasMany(locationModel)
-locationModel.belongsTo(provinceModel)
+// // Relación entre Empleado y tiendaModel
+Empleado.hasMany(tiendaModel, {
+  foreignKey: 'empleadoId', // La clave foránea en la tabla tiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla Empleado
+});
 
-//requestsTienda
-provinceModel.hasMany(solicitarTienda)
-solicitarTienda.belongsTo(provinceModel)
+tiendaModel.belongsTo(Empleado, {
+  foreignKey: 'empleadoId', // La clave foránea en la tabla tiendaModel
+  targetKey: 'id', // La clave primaria en la tabla Empleado
+});
 
-locationModel.hasMany(solicitarTienda)
-solicitarTienda.belongsTo(locationModel)
+// // Relación entre Cliente y tiendaModel
+Cliente.hasMany(tiendaModel, {
+  foreignKey: 'clienteId', // La clave foránea en la tabla tiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla Cliente
+});
+
+tiendaModel.belongsTo(Cliente, {
+  foreignKey: 'clienteId', // La clave foránea en la tabla tiendaModel
+  targetKey: 'id', // La clave primaria en la tabla Cliente
+});
+
+// // Relación entre Producto y tiendaModel
+Producto.hasMany(tiendaModel, {
+  foreignKey: 'productoId', // La clave foránea en la tabla tiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla Producto
+});
+
+tiendaModel.belongsTo(Producto, {
+  foreignKey: 'productoId', // La clave foránea en la tabla tiendaModel
+  targetKey: 'id', // La clave primaria en la tabla Producto
+});
+
+// Relación entre Auth y solicitarTienda
+Auth.hasMany(solicitarTienda, {
+  foreignKey: 'authId',
+  sourceKey: 'id',
+  onDelete: 'CASCADE',
+});
+
+solicitarTienda.belongsTo(Auth, {
+  foreignKey: 'authId',
+  targetKey: 'id',
+  onDelete: 'CASCADE',
+});
+
+// //     //Province and location
+provinceModel.hasMany(locationModel, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla locationmodel
+  sourceKey: 'id', // La clave primaria en la tabla provinciamodel
+});
+
+locationModel.belongsTo(provinceModel, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla locationamodel
+  targetKey: 'id', // La clave primaria en la tabla provinciamodel
+});
 
 
-//cinema and privince/location
-provinceModel.hasMany(tiendaModel)
-tiendaModel.belongsTo(provinceModel)
+// Relación entre Auth y Tienda
+Auth.hasMany(tiendaModel, {
+  foreignKey: 'authId',
+  sourceKey: 'id',
+  onDelete: 'CASCADE',
+});
 
-locationModel.hasMany(tiendaModel)
-tiendaModel.belongsTo(locationModel)
+tiendaModel.belongsTo(Auth, {
+  foreignKey: 'authId',
+  targetKey: 'id',
+  onDelete: 'CASCADE',
+});
 
-//Request and user 
-Auth.hasMany(solicitarTienda)
-solicitarTienda.belongsTo(Auth)
+
+
+// //requestsTienda
+provinceModel.hasMany(solicitarTienda, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla SolitartiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla provincia
+});
+
+solicitarTienda.belongsTo(provinceModel, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla SolicitartiendaModel
+  targetKey: 'id', // La clave primaria en la tabla provincia
+});
+
+// //tienda and privince/location
+provinceModel.hasMany(tiendaModel, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla tiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla provincia
+});
+
+tiendaModel.belongsTo(provinceModel, {
+  foreignKey: 'provinceId', // La clave foránea en la tabla tiendaModel
+  targetKey: 'id', // La clave primaria en la tabla provincia
+});
 
     console.log('Se crearon las tablas y se asociaron los modelos.');
 
@@ -59,7 +143,3 @@ solicitarTienda.belongsTo(Auth)
   }
 };
 
-export async function dataPreloaded() {
-  await createProvince()
-  await createLocation()
-}

@@ -8,13 +8,18 @@ export const locationModel = sequelize.define(
           type: DataTypes.STRING,
             allowNull: false
         },
-        provinceId: {
-          type: DataTypes.STRING,
-          allowNull: false
+        provinceId: { 
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'provinces',
+            key: 'id',
+          }
       },
     },
     {
-        timestamps: false
+        timestamps: false,
+        tableName: "locations",
     }
 )
 
