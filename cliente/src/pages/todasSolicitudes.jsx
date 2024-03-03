@@ -60,7 +60,7 @@ export const TodasSolicitudes = ({ reqCine }) => {
                                     <div className="container text-center mt-3">
                                         <div className="row">
                                             <div className="col">
-                                                <p className="">Nombre Cine: {tienda.name_tienda}</p>
+                                                <p className="">Nombre Tienda: {tienda.name_tienda}</p>
                                             </div>
                                             <div className="col">
                                                 <p className="">CUIT: {tienda.cuit}</p>

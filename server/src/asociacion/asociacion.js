@@ -114,7 +114,7 @@ tiendaModel.belongsTo(Auth, {
 
 
 
-// //requestsTienda
+// //requestsTienda, provincia 
 provinceModel.hasMany(solicitarTienda, {
   foreignKey: 'provinceId', // La clave foránea en la tabla SolitartiendaModel
   sourceKey: 'id', // La clave primaria en la tabla provincia
@@ -125,7 +125,18 @@ solicitarTienda.belongsTo(provinceModel, {
   targetKey: 'id', // La clave primaria en la tabla provincia
 });
 
-// //tienda and privince/location
+// //requestsTienda, localidad 
+locationModel.hasMany(solicitarTienda, {
+  foreignKey: 'locationId', // La clave foránea en la tabla SolitartiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla localidad
+});
+
+solicitarTienda.belongsTo(locationModel, {
+  foreignKey: 'locationId', // La clave foránea en la tabla SolicitartiendaModel
+  targetKey: 'id', // La clave primaria en la tabla localidad
+});
+
+// //tienda and privince/
 provinceModel.hasMany(tiendaModel, {
   foreignKey: 'provinceId', // La clave foránea en la tabla tiendaModel
   sourceKey: 'id', // La clave primaria en la tabla provincia
@@ -134,6 +145,17 @@ provinceModel.hasMany(tiendaModel, {
 tiendaModel.belongsTo(provinceModel, {
   foreignKey: 'provinceId', // La clave foránea en la tabla tiendaModel
   targetKey: 'id', // La clave primaria en la tabla provincia
+});
+
+// //tienda and location
+locationModel.hasMany(tiendaModel, {
+  foreignKey: 'locationId', // La clave foránea en la tabla tiendaModel
+  sourceKey: 'id', // La clave primaria en la tabla localidad
+});
+
+tiendaModel.belongsTo(locationModel, {
+  foreignKey: 'locationId', // La clave foránea en la tabla tiendaModel
+  targetKey: 'id', // La clave primaria en la tabla localidad
 });
 
     console.log('Se crearon las tablas y se asociaron los modelos.');

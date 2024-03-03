@@ -26,7 +26,7 @@ export const tiendaModel = sequelize.define(
     },
     productoId: { 
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'producto',
         key: 'id',
@@ -34,7 +34,7 @@ export const tiendaModel = sequelize.define(
   },
   authId: { 
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'auth',
       key: 'id',
@@ -42,7 +42,7 @@ export const tiendaModel = sequelize.define(
 },
 empleadoId: { 
   type: DataTypes.INTEGER,
-  allowNull: false,
+  allowNull: true,
   references: {
     model: 'empleados',
     key: 'id',
@@ -50,7 +50,7 @@ empleadoId: {
 },
 clienteId: { 
   type: DataTypes.INTEGER,
-  allowNull: false,
+  allowNull: true,
   references: {
     model: 'clientes',
     key: 'id',
@@ -61,6 +61,14 @@ provinceId: {
   allowNull: false,
   references: {
     model: 'provinces',
+    key: 'id',
+  }
+},
+locationId: { 
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'locations',
     key: 'id',
   }
 },

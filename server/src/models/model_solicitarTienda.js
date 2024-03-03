@@ -36,6 +36,14 @@ export const solicitarTienda = sequelize.define(
               key: 'id',
             }
         },
+        productoId: { 
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+              model: 'producto',
+              key: 'id',
+            }
+        },
         authId: { 
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -43,7 +51,15 @@ export const solicitarTienda = sequelize.define(
               model: 'auth',
               key: 'id',
             }
-        }
+        },
+        locationId: { 
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'locations',
+              key: 'id',
+            }
+          },
     }
 )
 
