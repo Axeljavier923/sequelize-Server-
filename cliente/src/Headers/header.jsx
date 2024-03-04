@@ -7,8 +7,9 @@ import '../stilos/header.css';
 // import {resp, userData} from "../submit/submitLogin.jsx"
 
 const Header = () => {
-  const { authState } = useContext(AuthContext);
-  console.log("authState", authState)
+  const { authState} = useContext(AuthContext);
+  // console.log("authState", authState)
+
   // console.log("resp", resp)
   // console.log("userData", userData)
 

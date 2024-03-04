@@ -1,39 +1,39 @@
-import  Header  from "../Headers/header.jsx";
-// import { Footer } from "../components/Footers/Footer.jsx";
-import { TodasSolicitudes } from "../pages/todasSolicitudes.jsx";
-// import '../assets/style/ManageRequests.css'
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../Headers/header.jsx";
+import { TodasSolicitudes } from "../pages/todasSolicitudes.jsx";
 import { CustomFetch } from "../api/customFeth.js";
 
 export const ManejarSolicitudes = () => {
-    const admin = localStorage.getItem('admin')
-    if (!admin) return (navigate('/'))
-
-    const navigate = useNavigate()
-
-    const [reqCine, setReqCine] = useState([])
+    const navigate = useNavigate();
+    const admin = localStorage.getItem('admin');
 
     useEffect(() => {
-        (
+        if (!admin) {
+            navigate('/');
+        }
+    }, [admin, navigate]);
 
-            async () => {
-                const data = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET')
+    const [reqCine, setReqCine] = useState([]);
 
-                setReqCine(data)
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET');
+                setReqCine(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-        )()
+        };
 
-    }, [])
-
+        fetchData();
+    }, []);
 
     return (
         <>
             <Header />
-            <TodasSolicitudes
-                reqCine={reqCine}
-            />
+            <TodasSolicitudes reqCine={reqCine} />
         </>
-    )
-}
+    );
+};
+

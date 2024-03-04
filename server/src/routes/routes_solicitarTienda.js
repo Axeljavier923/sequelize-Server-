@@ -8,7 +8,7 @@ routes_solicitarTienda.get('/:id', ctrlAcceptRequest)
 
 routes_solicitarTienda.get('/', ctrlGetRequestCine)
 
-routes_solicitarTienda.post('/:userId',  ctrlAddRequestCine)
+routes_solicitarTienda.post('/:authId',  ctrlAddRequestCine)
 
 routes_solicitarTienda.delete('/:id', ctrlDeleteCine)
 

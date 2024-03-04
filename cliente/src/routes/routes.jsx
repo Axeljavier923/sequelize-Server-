@@ -19,6 +19,7 @@ import { SoporteForm } from '../Formulario/formSoporte';
 import { RegisterTienda } from '../pages/registerTienda';
 import { TodasSolicitudes } from '../pages/todasSolicitudes';
 import { ManejarSolicitudes } from '../pages/manejarSolicitudes';
+import { VerSolicitud } from '../submit/verSolicitud';
 
 export const AppRouter = () => {
   return (
@@ -50,6 +51,7 @@ export const AppRouter = () => {
         <Route path='/eliminar_empleado/:empleadoId' element={<EliminarEmpleado />} />
         <Route path='/eliminar_cliente/:id' element={<EliminarCliente />} />
         <Route path='/eliminar_producto/:id' element={<EliminarProducto />} />
+        <Route path="/verSolicitud/:id" element={<VerSolicitud/>} />
 
       </Routes>
     </BrowserRouter>

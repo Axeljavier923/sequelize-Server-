@@ -5,7 +5,7 @@ import { CustomFetch } from '../api/customFeth.js';
 
 export const FormRegisterTienda = ({ province }) => {
     const [formState, setFormState] = useState({
-        name_cinema: '',
+        name_tienda: '',
         provinceId: 'provincia', 
         locationId: 'localidad',
         address: '',
@@ -56,7 +56,7 @@ export const FormRegisterTienda = ({ province }) => {
                                         name='name_cinema'
                                         onChange={handleChange}
                                         value={formState.name_cinema}
-                                        placeholder='Nombre del cine'
+                                        placeholder='Nombre de la tienda'
                                         type="text"
                                         autoComplete='off'
                                     />

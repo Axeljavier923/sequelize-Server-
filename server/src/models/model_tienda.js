@@ -34,7 +34,7 @@ export const tiendaModel = sequelize.define(
   },
   authId: { 
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
     references: {
       model: 'auth',
       key: 'id',
@@ -85,15 +85,22 @@ export async function addTienda(tienda) {
   return newTienda;
 }
 
+// export async function addTienda(tienda, authId) {
+//   const data = {...tienda, authId};
+//   const newTienda = await tiendaModel.create(data);
+//   return newTienda;
+// }
+
+
 export async function getAllTienda() {
   return await tiendaModel.findAll() ?? null;
 }
 
 
-export async function getTiendaById(tiendaId) {
+export async function getTiendaById(id) {
   const tienda = await tiendaModel.findOne({
     where: {
-      id: tiendaId
+      id
     }
   });
 
@@ -105,7 +112,11 @@ export async function getTiendaById(tiendaId) {
 
 export async function deleteTienda(id) {
 
-  const tienda = await tiendaModel.findByPk(id);
+  const tienda = await tiendaModel.findOne({
+    where:{
+      id
+    }
+  });
   if (!tienda) {
     return null;
   }

@@ -64,8 +64,8 @@ export const solicitarTienda = sequelize.define(
 )
 
 
-export async function addRequestCine(solicitud, UserId) {
-    const data = {...solicitud, UserId}
+export async function addRequestCine(solicitud, authId) {
+    const data = {...solicitud, authId}
     return await solicitarTienda.create(data)
 }
 
@@ -98,26 +98,33 @@ export async function acceptRequest(id) {
         }
     })
 
+    if (!request) {
+        console.log('Solicitud no encontrada');
+        return null; 
+    }
+
   
-    const addCinema = await tiendaModel.create({
+    const addTienda = await tiendaModel.create({
+        id: null,
         name: request.name_tienda,
         address: request.address,
         email: request.email,
         phone: request.phone,
         cuit: request.cuit,
         provinceId: request.provinceId,
-        locationId: request.locationId
+        locationId: request.locationId,
+        authId: request.authId,
     })
 
     const user = await Auth.findOne({
         where: {
-            id: request.UserId
+            id: request.authId
         }
     })
  
 
  
-   await user.update({cinemaId: addCinema.id})
+   await user.update({tiendaId: addTienda.id})
 
     const delRequest = await solicitarTienda.destroy({
         where: {
@@ -125,5 +132,5 @@ export async function acceptRequest(id) {
         }
     })
 
-    return addCinema
+    return addTienda
 }

@@ -1,53 +1,52 @@
 import { useState, useEffect } from "react"
 import { CustomFetch } from "../api/customFeth.js"
 import Swal from "sweetalert2"
+
 export const TodasSolicitudes = ({ reqCine }) => {
+    const [requestTienda, setRequestCine] = useState([]);
 
-    const [requestTienda, setRequestCine] = useState([])
+    const rejectedRequest = async (id) => {
+        try {
+            await CustomFetch(`http://localhost:3000/solicitarTienda/${id}`, 'DELETE');
+            const dataCine = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET');
+            setRequestCine(dataCine);
+            Swal.fire({
+                title: 'Solicitud rechazada',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                width: '50%',
+                padding: '1rem',
+                background: '#DBCBCB',
+                grow: 'row'
+            });
+        } catch (error) {
+            console.error('Error rejecting request:', error);
+        }
+    };
 
-    const rejectedRequest = async (e) => {
-        e.preventDefault()
-        const data = await CustomFetch(`http://localhost:3000/solicitarTienda/${e.target.id}`, 'DELETE')
-        const dataCine = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET')
-
-        setRequestCine(dataCine)
-
-        Swal.fire({
-            title: 'Solucitud aceptada',
-            icon: 'success',
-            confirmButtonText: 'ok',
-            width: '50%',
-            padding: '1rem',
-            background: '#DBCBCB',
-            grow: 'row'
-        })
-
-    }
-
-    const acceptRequest = async (e) => {
-        e.preventDefault()
-
-        const response = await CustomFetch(`http://localhost:3000/solicitarTienda/${e.target.id}`, 'GET')
-
-        const dataCine = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET')
-
-        setRequestCine(dataCine)
-
-        Swal.fire({
-            title: 'Solucitud aceptada',
-            icon: 'success',
-            confirmButtonText: 'ok',
-            width: '50%',
-            padding: '1rem',
-            background: '#DBCBCB',
-            grow: 'row'
-        })
-    }
+    const acceptRequest = async (id) => {
+        try {
+            const response = await CustomFetch(`http://localhost:3000/solicitarTienda/${id}`, 'GET');
+            const dataCine = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET');
+            console.log("datacine", dataCine )
+            setRequestCine(dataCine);
+            Swal.fire({
+                title: 'Solicitud aceptada',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                width: '50%',
+                padding: '1rem',
+                background: '#DBCBCB',
+                grow: 'row'
+            });
+        } catch (error) {
+            console.error('Error accepting request:', error);
+        }
+    };
 
     useEffect(() => {
-        setRequestCine(reqCine)
-    }, [reqCine])
-
+        setRequestCine(reqCine);
+    }, [reqCine]);
 
     return (
         <div className="requestsBox">
@@ -61,7 +60,7 @@ export const TodasSolicitudes = ({ reqCine }) => {
                                     <div className="container text-center mt-3">
                                         <div className="row">
                                             <div className="col">
-                                                <p className="">Nombre Cine: {tienda.name_cinema}</p>
+                                                <p className="">Nombre Tienda: {tienda.name_tienda}</p>
                                             </div>
                                             <div className="col">
                                                 <p className="">CUIT: {tienda.cuit}</p>
@@ -123,3 +122,6 @@ export const TodasSolicitudes = ({ reqCine }) => {
         </div>
     )
 }
+
+
+
