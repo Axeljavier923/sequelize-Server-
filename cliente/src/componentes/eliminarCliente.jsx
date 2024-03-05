@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Headers/header';
+import { Footer } from '../Footer/footer';
 
 const ConfirmacionEliminar = ({ onConfirmar, onCancel }) => (
   <div>
@@ -57,6 +58,7 @@ const EliminarCliente = () => {
           <p>Eliminando cliente...</p>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

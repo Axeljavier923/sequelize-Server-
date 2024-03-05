@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
-import '../stilos/formRegister.css'
+import '../stilos/formRecuperarClave.css'
 import { RecuparClaveSubmit } from '../submit/submitRegister'
 
-export const FormRegister = () => {
+export const FormRecuperarClave = () => {
 
   const [formState, setFormState] = useState({
     correo: "",
     password: "",
-    confirmarpassword: ""
+    // confirmarpassword: ""
   })
 
   const handleChange = (e) => {
@@ -24,7 +24,7 @@ export const FormRegister = () => {
     <div className='contenedorRegister'>
       <div className='formBoxRegister'>
         <form name='formregister'>
-          <h2 className='mt-2'>Registro</h2>
+          <h2 className='mt-2'>Recuparar contraseña</h2>
 
           <div className='inputBoxRegister'>
             <input type="email"
@@ -48,7 +48,7 @@ export const FormRegister = () => {
             <i><box-icon name='lock-alt' type='solid' ></box-icon></i>
           </div>
 
-          <div className='inputBoxRegister'>
+          {/* <div className='inputBoxRegister'>
             <input
               type="password"
               placeholder="Confirmar Contraseña"
@@ -58,14 +58,13 @@ export const FormRegister = () => {
               onChange={handleChange}
             />
             <i><box-icon name='lock-alt' type='solid' ></box-icon></i>
-          </div>
+          </div> */}
 
           <RecuparClaveSubmit
             formState={formState}
           />
 
           <div className='groupRegister'>
-            <span><a href="#">Recuperar Contraseña</a></span>
             <span><a href="/login">Inicia Sesion</a></span>
           </div>
         </form>

@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import Header from '../Headers/header';
+import { Footer } from '../Footer/footer';
 
 export const SoporteForm = () => {
   const {authState} = useContext(AuthContext)
@@ -120,6 +121,7 @@ export const SoporteForm = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </div>
 
 

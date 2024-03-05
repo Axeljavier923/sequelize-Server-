@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
 import "../stilos/crearCliente.css"
 import {useParams} from "react-router-dom"
+import { Footer } from '../Footer/footer';
 
 function CrearClientes() {
   const { empleadoId } = useParams();
@@ -74,6 +75,7 @@ function CrearClientes() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

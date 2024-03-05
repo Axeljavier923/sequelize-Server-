@@ -26,7 +26,7 @@ const Header = () => {
           {authState.supermercadoId &&<li><Link to='/lista_clientes'>Lista de Clientes</Link></li>}
           {authState.supermercadoId &&<li><Link to='/lista_empleados'>Lista de Empleados</Link></li>}
           {authState.supermercadoId &&<li><Link to='/lista_productos'>Lista de Productos</Link></li>}
-          {authState.supermercadoId &&<li><Link to='/crear_empleado'>Crear Empleado</Link></li>}
+         {authState.supermercadoId &&<li><Link to='/crear_empleado'>Crear Empleado</Link></li>}
         </ul>
         <div className="buttons d-flex m-1">
           {authState.islogged && <LogoutButton />}

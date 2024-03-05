@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../Headers/header';
 import '../stilos/crearEmpleado.css'; 
+import { Footer } from '../Footer/footer';
 
 const CrearEmpleado = () => {
   const [nuevoEmpleado, setNuevoEmpleado] = useState({
@@ -85,6 +86,7 @@ const CrearEmpleado = () => {
         </form>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 };

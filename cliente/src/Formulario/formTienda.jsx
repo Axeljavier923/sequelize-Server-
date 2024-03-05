@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../stilos/formTienda.css';
 import { SolicitudTiendaSubmit } from '../submit/submit_solicitudTienda.jsx';
 import { CustomFetch } from '../api/customFeth.js';
+import { Footer } from '../Footer/footer.jsx';
 
 export const FormRegisterTienda = ({ province }) => {
     const [formState, setFormState] = useState({
@@ -160,6 +161,7 @@ export const FormRegisterTienda = ({ province }) => {
                         <SolicitudTiendaSubmit formState={formState} />
                     </form>
                 </div>
+            <Footer/>
             </div>
         </>
     );

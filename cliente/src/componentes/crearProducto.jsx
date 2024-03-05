@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
 import "../stilos/crearProductos.css"
 import {useParams} from "react-router-dom"
+import { Footer } from '../Footer/footer';
 
 function crearProductos() {
   const { clientId } = useParams();
@@ -66,6 +67,7 @@ function crearProductos() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import {routes_tienda} from './src/routes/routes_tienda.js';
 import {routes_solicitarTienda} from './src/routes/routes_solicitarTienda.js';
 import {routes_departamentos} from './src/routes/routes_departamentos.js';
 import {routes_provincia} from './src/routes/routes_provincia.js';
+import {routes_venderProducto} from './src/routes/routes_ventaProducto.js';
 
 // Routes
 app.use("/cliente", routes_cliente);
@@ -19,8 +20,8 @@ app.use("/tienda", routes_tienda);
 app.use("/solicitarTienda", routes_solicitarTienda);
 app.use("/departamentos", routes_departamentos);
 app.use("/provincia", routes_provincia);
+app.use("/ventaProducto", routes_venderProducto);
 app.use("/auth", routes_auth);
-
 
   // Listen
   app.listen(port, () => {

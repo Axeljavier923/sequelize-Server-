@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Headers/header';
 import '../stilos/listaTablas.css'; 
 import { Link } from 'react-router-dom';
+import { Footer } from '../Footer/footer';
 
 const ListaProductos = () => {
   const [dataProductos, setDataProductos] = useState(null);
@@ -60,6 +61,7 @@ const ListaProductos = () => {
           </tbody>
         </table>
       )}
+      <Footer/>
     </div>
   );
 };

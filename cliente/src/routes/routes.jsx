@@ -20,6 +20,8 @@ import { RegisterTienda } from '../pages/registerTienda';
 import { TodasSolicitudes } from '../pages/todasSolicitudes';
 import { ManejarSolicitudes } from '../pages/manejarSolicitudes';
 import { VerSolicitud } from '../submit/verSolicitud';
+import { FormRecuperarClave } from '../Formulario/formRecuperarContraseña';
+import ListaVentaProductos from '../componentes/listaVentaProductos';
 
 export const AppRouter = () => {
   return (
@@ -31,12 +33,14 @@ export const AppRouter = () => {
         <Route path='/lista_clientes' element={<ListaClientes />} />
         <Route path='/lista_empleados' element={<ListaEmpleados />} />
         <Route path='/lista_productos' element={<ListaProductos />} />
+        <Route path='/listaVentaProducto' element={<ListaVentaProductos/>} />
         <Route path='/solicitudes' element={<ManejarSolicitudes />} />
         <Route path='/soporte' element={<SoporteForm />} />
         <Route path='/registrar-tienda' element={<RegisterTienda/>} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/recuperarClave' element={<FormRecuperarClave />} />
         <Route path='/empleado/:empleadoId/crear_cliente' element={<CrearCliente />} />
         <Route path='/crear_empleado' element={<CrearEmpleado />} />
         <Route path='/cliente/:clientId/crear_producto' element={<CrearProducto />} />

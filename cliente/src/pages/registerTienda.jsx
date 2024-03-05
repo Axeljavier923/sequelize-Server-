@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom"
 import { FormRegisterTienda } from "../Formulario/formTienda.jsx"
 import { AuthContext } from "../context/authProvider.jsx"
 import { CustomFetch } from "../api/customFeth.js"
+import { Footer } from "../Footer/footer.jsx"
 
 export const RegisterTienda = () => {
     const { authState } = useContext(AuthContext)
@@ -23,6 +24,7 @@ export const RegisterTienda = () => {
             <FormRegisterTienda
                 province={province}
             />
+            <Footer/>
         </>
     )
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Headers/header';
 import "../stilos/editarProducto.css"
+import { Footer } from '../Footer/footer';
 
 const EditarProducto = () => {
   const { id } = useParams();
@@ -98,6 +99,7 @@ const EditarProducto = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

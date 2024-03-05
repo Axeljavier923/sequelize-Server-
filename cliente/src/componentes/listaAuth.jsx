@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
+import { Footer } from '../Footer/footer';
 
 function ListaAuth() {
   const [auth, setAuth] = useState(null);
@@ -32,6 +33,7 @@ function ListaAuth() {
         <hr/>
       </div>
     ))}
+      <Footer/>
     </div>
   );
 }

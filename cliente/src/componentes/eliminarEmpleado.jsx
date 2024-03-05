@@ -57,6 +57,7 @@ const EliminarEmpleado = () => {
           <p>Eliminando empleado...</p>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

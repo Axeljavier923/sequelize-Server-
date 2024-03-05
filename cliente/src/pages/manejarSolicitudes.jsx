@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Headers/header.jsx";
 import { TodasSolicitudes } from "../pages/todasSolicitudes.jsx";
 import { CustomFetch } from "../api/customFeth.js";
+import { Footer } from "../Footer/footer.jsx";
 
 export const ManejarSolicitudes = () => {
     const navigate = useNavigate();
@@ -33,6 +34,7 @@ export const ManejarSolicitudes = () => {
         <>
             <Header />
             <TodasSolicitudes reqCine={reqCine} />
+            <Footer/>
         </>
     );
 };

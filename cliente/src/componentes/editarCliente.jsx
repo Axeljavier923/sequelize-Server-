@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Headers/header';
 import "../stilos/editarCliente.css"
+import { Footer } from '../Footer/footer';
 
 const EditarCliente = () => {
   const { id } = useParams();
@@ -102,6 +103,7 @@ const EditarCliente = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

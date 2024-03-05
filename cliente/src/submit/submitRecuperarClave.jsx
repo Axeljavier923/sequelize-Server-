@@ -4,7 +4,7 @@ import { CustomFetch } from "../api/customFeth.js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-export const RecuparClaveSubmit = ({ formState }) => {
+export const RegisterSubmit = ({ formState }) => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 

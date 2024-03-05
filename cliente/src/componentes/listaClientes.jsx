@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Headers/header';
 import { Link } from 'react-router-dom';
+import { Footer } from '../Footer/footer';
 
 const ListaClientes = () => {
   const [dataCliente, setDataCliente] = useState(null);
@@ -64,6 +65,7 @@ const ListaClientes = () => {
           </tbody>
         </table>
       )}
+      <Footer/>
     </div>
   );
 };

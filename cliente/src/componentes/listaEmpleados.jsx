@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Headers/header';
 import '../stilos/listaTablas.css'; 
 import { Link} from 'react-router-dom';
+import { Footer } from '../Footer/footer';
 
 function ListaEmpleados() {
   const [dataEmpleado, setDataEmpleado] = useState(null);
@@ -65,6 +66,7 @@ function ListaEmpleados() {
       ) : (
         <p>No hay empleados para mostrar.</p>
       )}
+      <Footer/>
     </div>
   )
 }

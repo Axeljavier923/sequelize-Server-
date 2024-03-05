@@ -102,6 +102,7 @@ const EditarEmpleado = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
