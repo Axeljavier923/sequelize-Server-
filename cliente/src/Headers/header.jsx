@@ -31,6 +31,31 @@ const Header = () => {
         <div className="buttons d-flex m-1">
           {authState.islogged && <LogoutButton />}
           {!authState.islogged && <LoginButtons />}
+
+          {/* <div className='d-flex justify-content-center'>
+              <div>
+                <form className="d-flex prueba" id='Buscador' role="search">
+                  <input
+                    autoComplete='off'
+                    className="form-control me-2 borde-colorBusqueda color-fondo"
+                    id='buscador'
+                    type="search"
+                    placeholder="Busca tu pelicula"
+                    aria-label="Search"
+                    onChange={handleShear}
+                  />
+                  <button
+                    className="btn btn-outline-secondar borde-colorBusqueda color-fondo"
+                    type="submit"
+                    onClick={submitSearch}
+                  >
+                    <div className="mt-2"><box-icon name='search-alt' color='#ffffff' ></box-icon></div>
+                  </button>
+                </form>
+              </div>
+            </div> */}
+
+
         </div>
       </header>
     </div>

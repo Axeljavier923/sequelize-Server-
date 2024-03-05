@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+.contenedorLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+   background-image: url('../img/formLogin.jpg');
+  background-size: cover;
+}
+
+.formBoxLogin {
+  position: relative;
+  width: 380px;
+  height: 60vh;
+  border: 2px solid rgba(255, 255, 2550.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBoxLogin h2 {
+  color: #000000;
+  text-align: center;
+  font-size: 32px;
+}
+
+.formBoxLogin .inputBoxLogin {
+  position: relative;
+  margin: 15px 0;
+  width: 300px;
+  border-bottom: 2px solid #fff;
+}
+
+.formBoxLogin .inputBoxLogin input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  border:1px solid rgb(200, 200, 200);
+  border-radius: 40px;
+  outline: none;
+  padding: 0 20px 0 5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.inputBoxLogin i{
+  position: absolute;
+  right: 20px;
+  /* top: 20%; */
+  /* transform: translate(-50%); */
+}
+
+input::placeholder {
+  color: #000000;
+}
+
+.botonLogin {
+  color: #fff;
+  background: blue;
+  width: 100%;
+  height: 50px;
+  border: 5px;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, .5);
+}
+.botonLogin:hover {
+  transform: scale(1.1); /* Aumenta el tamaño en un 10% en el hover */
+  transition: transform 0.3s; /* Agrega una transición suave */
+}
+
+.groupLogin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.groupLogin span a {
+  color: #fff;
+  position: relative;
+  top: 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.groupLogin a:focus {
+  text-decoration: underline;
+}

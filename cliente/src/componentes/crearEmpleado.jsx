@@ -61,14 +61,17 @@ const CrearEmpleado = () => {
             />
           </label>
           <label>
-            Género:
-            <input
-              type="text"
-              name="genero"
-              value={nuevoEmpleado.genero}
-              onChange={handleNuevoEmpleadoChange}
-            />
-          </label>
+              Género:
+              <select
+                name="genero"
+                value={nuevoEmpleado.genero}
+                onChange={handleNuevoEmpleadoChange}
+              >
+                <option value="">Seleccionar Género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+              </select>
+            </label>
           <label>
             Edad:
             <input

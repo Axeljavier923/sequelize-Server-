@@ -116,15 +116,28 @@ export async function acceptRequest(id) {
         authId: request.authId,
     })
 
-    const user = await Auth.findOne({
-        where: {
-            id: request.authId
+    if (request.authId) {
+        const user = await Auth.findOne({
+            where: {
+                id: request.authId
+            }
+        });
+
+        if (user) {
+            // Actualizar el campo supermercadoId del usuario
+            await user.update({ supermercadoId: true });
         }
-    })
+    }
+
+//     const user = await Auth.findOne({
+//         where: {
+//             id: request.authId
+//         }
+//     })
  
 
  
-   await user.update({tiendaId: addTienda.id})
+//    await user.update({supermercadoId: addTienda.id})
 
     const delRequest = await solicitarTienda.destroy({
         where: {

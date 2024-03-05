@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-// import '../../assets/style/FormLogin.css'
+import '../stilos/formLogin.css'
 import { LoginSubmit } from '../submit/submitLogin.jsx'
 
 export const FormLogin = () => {
@@ -32,7 +32,9 @@ export const FormLogin = () => {
               id='correo'
               value={formState.correo}
               onChange={handleChange}
+              
             />
+            <i><box-icon type='solid' name='user'></box-icon></i>
           </div>
 
           <div className='inputBoxLogin'>
@@ -43,6 +45,7 @@ export const FormLogin = () => {
               value={formState.password}
               onChange={handleChange}
             />
+            <i><box-icon name='lock-alt' type='solid' ></box-icon></i>
           </div>
 
           <LoginSubmit

@@ -78,12 +78,16 @@ const EditarEmpleado = () => {
             </label>
             <label>
               Género:
-              <input
+              <select
                 type="text"
                 name="genero"
                 value={nuevoEmpleado.genero}
                 onChange={handleNuevoEmpleadoChange}
-              />
+                >
+                <option value=""> selecionar genero</option>
+                <option value="Masculino"> Masculino</option>
+                <option value="Femenino"> Femenino</option>
+              </select>
             </label>
             <label>
               Edad:

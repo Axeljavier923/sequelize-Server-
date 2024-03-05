@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-// import '../../assets/style/FormRegister.css'
+import '../stilos/formRegister.css'
 import { RegisterSubmit } from '../submit/submitRegister'
 
 export const FormRegister = () => {
@@ -33,6 +33,7 @@ export const FormRegister = () => {
               value={formState.email}
               onChange={handleChange}
             />
+            <i><box-icon type='solid' name='user'></box-icon></i>
           </div>
 
           <div className='inputBoxRegister'>
@@ -43,6 +44,7 @@ export const FormRegister = () => {
               value={formState.password}
               onChange={handleChange}
             />
+            <i><box-icon name='lock-alt' type='solid' ></box-icon></i>
           </div>
 
           {/* <div className='inputBoxRegister'>

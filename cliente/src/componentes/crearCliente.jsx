@@ -56,7 +56,15 @@ function CrearClientes() {
             </label>
             <label>
               Género:
-              <input type="text" name="genero" value={nuevoCliente.genero} onChange={handleInputChange} required />
+              <select
+                name="genero"
+                value={nuevoCliente.genero}
+                onChange={handleInputChange}
+              >
+                <option value="">Seleccionar Género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+              </select>
             </label>
             <label>
               Edad:

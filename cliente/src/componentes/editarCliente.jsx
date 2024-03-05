@@ -78,12 +78,16 @@ const EditarCliente = () => {
             </label>
             <label>
               Género:
-              <input
+              <select
                 type="text"
                 name="genero"
                 value={nuevoCliente.genero}
                 onChange={handleNuevoClienteChange}
-              />
+              >
+              <option value="">selecionar genero</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femino">Femenino</option>
+              </select>
             </label>
             <label>
               Edad:
