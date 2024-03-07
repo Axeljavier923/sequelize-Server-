@@ -21,6 +21,7 @@ const Header = () => {
         <ul className="nav-links">
           <li><Link to='/'>Inicio</Link></li>
           <li><Link to='/soporte'>Soporte</Link></li>
+          <li><Link to='/crear_venta'>Venta</Link></li>
           {authState.admin && <li><Link to='/solicitudes'>Solicitudes</Link></li>}
           {authState.admin &&<li><Link to='/lista_auth'>Lista de Registrados</Link></li>}
           {authState.supermercadoId &&<li><Link to='/lista_clientes'>Lista de Clientes</Link></li>}

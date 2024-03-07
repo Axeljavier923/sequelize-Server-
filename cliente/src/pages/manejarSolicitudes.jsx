@@ -15,13 +15,13 @@ export const ManejarSolicitudes = () => {
         }
     }, [admin, navigate]);
 
-    const [reqCine, setReqCine] = useState([]);
+    const [reqTienda, setReqTienda] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await CustomFetch('http://localhost:3000/solicitarTienda', 'GET');
-                setReqCine(data);
+                setReqTienda(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -33,8 +33,7 @@ export const ManejarSolicitudes = () => {
     return (
         <>
             <Header />
-            <TodasSolicitudes reqCine={reqCine} />
-            <Footer/>
+            <TodasSolicitudes reqCine={reqTienda} />
         </>
     );
 };

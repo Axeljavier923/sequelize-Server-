@@ -1,7 +1,5 @@
 /* Estilos para la lista de productos */
-body{
-    background-color: #000000;
-}
+
 .product-list {
     display: flex;
     flex-wrap: wrap;

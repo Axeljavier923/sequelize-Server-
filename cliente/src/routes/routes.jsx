@@ -22,6 +22,7 @@ import { ManejarSolicitudes } from '../pages/manejarSolicitudes';
 import { VerSolicitud } from '../submit/verSolicitud';
 import { FormRecuperarClave } from '../Formulario/formRecuperarContraseña';
 import ListaVentaProductos from '../componentes/listaVentaProductos';
+import CrearVentaProducto from '../componentes/crearVentaProducto';
 
 export const AppRouter = () => {
   return (
@@ -41,6 +42,7 @@ export const AppRouter = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/recuperarClave' element={<FormRecuperarClave />} />
+        <Route path='/crear_venta' element={<CrearVentaProducto />} />
         <Route path='/empleado/:empleadoId/crear_cliente' element={<CrearCliente />} />
         <Route path='/crear_empleado' element={<CrearEmpleado />} />
         <Route path='/cliente/:clientId/crear_producto' element={<CrearProducto />} />

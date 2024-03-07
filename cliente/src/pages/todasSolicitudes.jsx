@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CustomFetch } from "../api/customFeth.js";
 import Swal from "sweetalert2";
 
-export const TodasSolicitudes = ({ reqCine }) => {
+export const TodasSolicitudes = ({ reqTienda }) => {
   const [requestTienda, setRequestCine] = useState([]);
 
   const rejectedRequest = async (id) => {
@@ -44,8 +44,8 @@ export const TodasSolicitudes = ({ reqCine }) => {
   };
 
   useEffect(() => {
-    setRequestCine(reqCine);
-  }, [reqCine]);
+    setRequestCine(reqTienda);
+  }, [reqTienda]);
 
   return (
     <div>
