@@ -6,31 +6,21 @@ const Perfil = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState('Sin archivos seleccionados');
   const [currentPhoto, setCurrentPhoto] = useState('');
-  const [loading, setLoading] = useState(false);  // Debería comenzar como falso
   const { id } = useParams();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        setLoading(true);  // Marca como cargando antes de la solicitud
-
         const response = await fetch(`http://localhost:3000/auth/user/${id}`);
         const userData = await response.json();
         const fotoUsuario = userData.unUsuario.fotoUser;
-        console.log("foto usuario", fotoUsuario);
 
         // Verifica si hay una foto de usuario
-        const mostrarFoto = () => {
-            if (fotoUsuario) {
-            setCurrentPhoto(fotoUsuario);
-          }
-        };
-      
-
-        setLoading(false);  // Marca como no cargando después de la solicitud
+        if (fotoUsuario) {
+          setCurrentPhoto(fotoUsuario);
+        }
       } catch (error) {
         console.error('Error al obtener datos del usuario', error);
-        setLoading(false);  // Asegúrate de marcar como no cargando en caso de error
       }
     };
 
@@ -45,18 +35,19 @@ const Perfil = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const formData = new FormData();
       formData.append('fotoUser', selectedFile);
-
+  
       const response = await fetch(`http://localhost:3000/auth/foto/${id}`, {
         method: 'PUT',
         body: formData,
       });
-
+  
       if (response.ok) {
-        setCurrentPhoto(URL.createObjectURL(selectedFile));
+        // Actualiza el estado con el nombre del archivo de la nueva foto
+        setCurrentPhoto(selectedFile.name);
         alert('Foto de perfil actualizada con éxito');
       } else {
         alert('Error al actualizar la foto de perfil');
@@ -72,19 +63,15 @@ const Perfil = () => {
       <h1>Editar perfil</h1>
       <hr className="divider" />
 
-      {loading ? (
-        // Muestra un mensaje o componente de carga mientras la foto se está cargando
-        <p>Cargando foto de perfil...</p>
-      ) : (
-        <div className="profile-image">
-          <img
-            name="image"
-            src={currentPhoto}
-            alt="Foto de perfil"
-            className="profile-picture"
-          />
-        </div>
-      )}
+      <div className="profile-image">
+        <img
+          name="image"
+          type="file"
+          src={currentPhoto ? `/img_foto/${currentPhoto}` : ''}
+          alt={`Imagen de perfil ${currentPhoto}`}
+          className="profile-picture"
+        />
+      </div>
 
       <div className="change-photo">
         <label htmlFor="image">Seleccionar archivo</label>
