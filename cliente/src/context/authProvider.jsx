@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
         admin: localStorage.getItem('admin') === 'true',
         supermercadoId: localStorage.getItem('supermercadoId') === 'true',
         token: localStorage.getItem('token'),
+        fotoUser: localStorage.getItem('fotoUser'),
     });
     
     const login = async (payload) => {
@@ -26,6 +27,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('islogged', 'true');
         localStorage.setItem('admin', payload.admin);
         localStorage.setItem('supermercadoId', payload.supermercadoId);
+        localStorage.setItem('fotoUser', payload.fotoUser);
 
     };
 

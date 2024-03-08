@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(fileUpload());
 app.use('/producto_img', express.static(path.join(rutaActual, 'cliente/public/producto_img')));
+app.use('/img_foto', express.static(path.join(rutaActual, 'cliente/public/img_foto')));
 app.set("view engine", "ejs");
 app.set("views", path.join(rutaActual, "./src/views"));
 

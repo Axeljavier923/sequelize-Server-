@@ -8,11 +8,6 @@ import {provinceModel, createProvince} from "../models/model_provincia.js";
 import { solicitarTienda } from "../models/model_solicitarTienda.js";
 import {tiendaModel} from "../models/model_tienda.js";
 
-// export async function dataPreloaded() {
-//   await createProvince()
-//   await createLocation()
-// }
-
 export const associate = async () => {
   try {
     // Crear las tablas
@@ -23,8 +18,6 @@ export const associate = async () => {
     await solicitarTienda.sync({ force: false });
     await locationModel.sync({ force: false});
     await provinceModel.sync({ force: false });
-
-
 
     // Crear provincias y ubicaciones
     await createProvince();

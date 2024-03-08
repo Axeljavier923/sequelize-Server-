@@ -23,8 +23,11 @@ export const Auth=sequelize.define(
         admin: {
           type: DataTypes.BOOLEAN,
           defaultValue: false
-        }
-
+        },
+        fotoUser: {
+          type: DataTypes.STRING, 
+          allowNull: true,
+        },
     },
     {
         timestamps:true,

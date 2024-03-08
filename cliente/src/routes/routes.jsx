@@ -23,13 +23,14 @@ import { VerSolicitud } from '../submit/verSolicitud';
 import { FormRecuperarClave } from '../Formulario/formRecuperarContraseña';
 import ListaVentaProductos from '../componentes/listaVentaProductos';
 import CrearVentaProducto from '../componentes/crearVentaProducto';
+import Perfil from '../Headers/perfil';
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
-
+        <Route path='/editar-perfil/:id' element={<Perfil />} />
         <Route path='/lista_auth' element={<ListaAuth />} />
         <Route path='/lista_clientes' element={<ListaClientes />} />
         <Route path='/lista_empleados' element={<ListaEmpleados />} />
