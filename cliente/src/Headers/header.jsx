@@ -78,7 +78,7 @@ const Header = ({ setSearchBar }) => {
 
           <div className='d-flex justify-content-center'>
               <div>
-                <form className="d-flex prueba" id='Buscador' role="search">
+              <form className="d-flex prueba" id='Buscador' role="search">
                   <input
                     autoComplete='off'
                     className="form-control me-2 borde-colorBusqueda color-fondo"
@@ -98,8 +98,6 @@ const Header = ({ setSearchBar }) => {
                 </form>
               </div>
             </div>
-
-
           </div>
         </div>
       </header>
