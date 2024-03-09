@@ -15,7 +15,7 @@ import EditarCliente from '../componentes/editarCliente';
 import EliminarCliente from '../componentes/eliminarCliente';
 import EditarProducto from '../componentes/editarProducto';
 import EliminarProducto from '../componentes/eliminarProducto';
-import { SoporteForm } from '../Formulario/formSoporte';
+import { SolicitudTienda } from '../Formulario/formEnvioSolicitud';
 import { RegisterTienda } from '../pages/registerTienda';
 import { TodasSolicitudes } from '../pages/todasSolicitudes';
 import { ManejarSolicitudes } from '../pages/manejarSolicitudes';
@@ -24,6 +24,9 @@ import { FormRecuperarClave } from '../Formulario/formRecuperarContraseña';
 import ListaVentaProductos from '../componentes/listaVentaProductos';
 import CrearVentaProducto from '../componentes/crearVentaProducto';
 import Perfil from '../Headers/perfil';
+import Soporte from '../Formulario/formSoporte';
+import { FormObtenerCorreo } from '../Formulario/formObtenerCorreo';
+import { Codigo } from '../componentes/codigo';
 
 export const AppRouter = () => {
   return (
@@ -37,12 +40,15 @@ export const AppRouter = () => {
         <Route path='/lista_productos' element={<ListaProductos />} />
         <Route path='/listaVentaProducto' element={<ListaVentaProductos/>} />
         <Route path='/solicitudes' element={<ManejarSolicitudes />} />
-        <Route path='/soporte' element={<SoporteForm />} />
+        <Route path='/solicitudTienda' element={<SolicitudTienda />} />
         <Route path='/registrar-tienda' element={<RegisterTienda/>} />
+        <Route path='/codigo' element={<Codigo/>} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/recuperarClave' element={<FormRecuperarClave />} />
+        <Route path='/soporte' element={<Soporte />} />
+        <Route path='/getCorreo' element={<FormObtenerCorreo />} />
+        <Route path='/recuperar_clave/' element={<FormRecuperarClave />} />
         <Route path='/crear_venta' element={<CrearVentaProducto />} />
         <Route path='/empleado/:empleadoId/crear_cliente' element={<CrearCliente />} />
         <Route path='/crear_empleado' element={<CrearEmpleado />} />

@@ -11,6 +11,7 @@ import {routes_solicitarTienda} from './src/routes/routes_solicitarTienda.js';
 import {routes_departamentos} from './src/routes/routes_departamentos.js';
 import {routes_provincia} from './src/routes/routes_provincia.js';
 import {routes_venderProducto} from './src/routes/routes_ventaProducto.js';
+import {routes_correo} from './src/routes/routes_correo.js';
 
 // Routes
 app.use("/cliente", routes_cliente);
@@ -21,6 +22,7 @@ app.use("/solicitarTienda", routes_solicitarTienda);
 app.use("/departamentos", routes_departamentos);
 app.use("/provincia", routes_provincia);
 app.use("/ventaProducto", routes_venderProducto);
+app.use("/correo", routes_correo);
 app.use("/auth", routes_auth);
 
   // Listen

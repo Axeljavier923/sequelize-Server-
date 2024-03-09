@@ -27,7 +27,7 @@ export const RecuparClaveSubmit = ({ formState }) => {
 
     console.log(formState);
 
-    const response = await CustomFetch("http://localhost:3000/auth/register", 'POST', formState);
+    const response = await CustomFetch("http://localhost:3000/auth/user", 'PUT', formState);
     console.log("response", response);
 
     if (response.errors) {
@@ -50,8 +50,8 @@ export const RecuparClaveSubmit = ({ formState }) => {
       login(response.token);
 
       Swal.fire({
-        title: 'Registro exitoso',
-        text: '¡Tu cuenta ha sido creada con éxito!',
+        title: 'Actualizacion exitoso',
+        text: '¡Tu cuenta ha sido actualizada con éxito!',
         icon: 'success',
         width: '50%',
         padding: '1rem',

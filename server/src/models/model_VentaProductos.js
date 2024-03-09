@@ -1,5 +1,5 @@
 import { sequelize } from '../database/db.js';
-import { DataTypes, } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
 export const tiendaModel = sequelize.define(
   'VentaProducto',

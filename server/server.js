@@ -2,6 +2,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import nodemailer from 'nodemailer';
 import path,{dirname} from "path";
 import { fileURLToPath } from "url";
 import fileUpload from 'express-fileupload';

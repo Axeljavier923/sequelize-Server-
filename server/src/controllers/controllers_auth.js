@@ -3,6 +3,7 @@ import {getUserById, getAllUsers, getOneUser, EditOneUsers,
 import {hashPassword, comparePassword} from "../helpers/hash.js";
 import {generateToken, verifyToken} from "../helpers/jsonWenToken.js"
 
+
 export const ctrlGetUserInfoByToken = async (req, res) => {
   const tokenHeader = req.headers["authorization"];
   console.log("tokenHeader: ", tokenHeader);
@@ -84,11 +85,10 @@ export const ctrlLoginUser = async (req, res) => {
     }
   };
 
-
   export const editUser = async (req, res) => {
-    const { id } = req.params;
+    const { correo } = req.body; // Obtén el correo desde req.body
     try {
-      const updateUser = await EditOneUsers(id)
+      const updateUser = await Auth.findOne({ where: { correo } });
   
       if (!updateUser) {
         return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -198,4 +198,3 @@ export const ctrlimagen = async (req, res) => {
       res.status(500).json({ message: 'Error upload image' });
   }
 };
-

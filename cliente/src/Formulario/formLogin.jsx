@@ -53,7 +53,7 @@ export const FormLogin = () => {
           />
 
           <div className='groupLogin'>
-            <span><a href="#">Recuperar Contraseña</a></span>
+            <span><a href="getCorreo">Recuperar Contraseña</a></span>
             <span><a href="/register">Registro</a></span>
           </div>
 

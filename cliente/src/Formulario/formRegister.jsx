@@ -65,7 +65,7 @@ export const FormRegister = () => {
           />
 
           <div className='groupRegister'>
-            <span><a href="#">Recuperar Contraseña</a></span>
+            <span><a href="/getCorreo">Recuperar Contraseña</a></span>
             <span><a href="/login">Inicia Sesion</a></span>
           </div>
         </form>
